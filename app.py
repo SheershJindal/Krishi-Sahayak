@@ -7,7 +7,9 @@ import torch
 import pandas as pd
 import CNN
 from CropRecommendation import predict_crop
+from dotenv import load_dotenv
 
+load_dotenv()
 
 disease_info = pd.read_csv('./static/data/disease_info.csv' , encoding='cp1252')
 supplement_info = pd.read_csv('./static/data/supplement_info.csv', encoding='cp1252')
@@ -88,5 +90,9 @@ def market():
     return render_template('market.html', supplement_image = list(supplement_info['supplement image']),
                            supplement_name = list(supplement_info['supplement name']), disease = list(disease_info['disease_name']), buy = list(supplement_info['buy link']))
 
+@app.context_processor
+def inject_api():
+    return dict(weather_api_key=os.environ.get('WEATHER_API_KEY'))
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

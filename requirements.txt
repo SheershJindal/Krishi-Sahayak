@@ -6,3 +6,4 @@ torch==2.2.1
 torchvision==0.17.1
 scikit-learn==1.4.1.post1
 gunicorn==22.0.0
+python-dotenv==1.0.1

@@ -169,7 +169,7 @@
     </script>
     <script>
       function fetchWeatherData(latitude, longitude) {
-        const apiKey = "664f9fc7944880a60123e6296326e5f6";
+        const apiKey = "{{weather_api_key}}";
         const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
 
         fetch(url)
